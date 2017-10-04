@@ -661,28 +661,28 @@ Image Symbol Table
     nr_mutex                                 0x10000004   Data           4  rtx_conf_cm.o(.data)
     .data                                    0x10000008   Section        8  retarget.o(.data)
     .data                                    0x10000010   Section        4  system_lpc17xx.o(.data)
-    .data                                    0x10000014   Section       88  main_task_exp.o(.data)
-    .data                                    0x1000006c   Section        8  rt_task.o(.data)
-    .data                                    0x10000074   Section        4  rt_time.o(.data)
-    .data                                    0x10000078   Section        1  hal_cm3.o(.data)
-    .data                                    0x1000007c   Section        7  rt_system.o(.data)
-    os_lock                                  0x10000080   Data           1  rt_system.o(.data)
-    os_psh_flag                              0x10000081   Data           1  rt_system.o(.data)
-    pend_flags                               0x10000082   Data           1  rt_system.o(.data)
-    .data                                    0x10000084   Section        8  rt_robin.o(.data)
-    .data                                    0x1000008c   Section        8  rt_timer.o(.data)
-    .bss                                     0x10000098   Section     7372  rtx_conf_cm.o(.bss)
-    std_libspace                             0x10001944   Data         960  rtx_conf_cm.o(.bss)
-    std_libmutex                             0x10001d04   Data          96  rtx_conf_cm.o(.bss)
-    .bss                                     0x10001d64   Section       44  main_task_exp.o(.bss)
-    .bss                                     0x10001d90   Section       52  rt_task.o(.bss)
-    .bss                                     0x10001dc4   Section       48  rt_list.o(.bss)
-    .bss                                     0x10001df4   Section       96  libspace.o(.bss)
-    HEAP                                     0x10001e58   Section        0  startup_lpc17xx.o(HEAP)
-    STACK                                    0x10001e58   Section      512  startup_lpc17xx.o(STACK)
-    Heap_Mem                                 0x10001e58   Data           0  startup_lpc17xx.o(HEAP)
-    Stack_Mem                                0x10001e58   Data         512  startup_lpc17xx.o(STACK)
-    __initial_sp                             0x10002058   Data           0  startup_lpc17xx.o(STACK)
+    .data                                    0x10000014   Section      148  main_task_exp.o(.data)
+    .data                                    0x100000a8   Section        8  rt_task.o(.data)
+    .data                                    0x100000b0   Section        4  rt_time.o(.data)
+    .data                                    0x100000b4   Section        1  hal_cm3.o(.data)
+    .data                                    0x100000b8   Section        7  rt_system.o(.data)
+    os_lock                                  0x100000bc   Data           1  rt_system.o(.data)
+    os_psh_flag                              0x100000bd   Data           1  rt_system.o(.data)
+    pend_flags                               0x100000be   Data           1  rt_system.o(.data)
+    .data                                    0x100000c0   Section        8  rt_robin.o(.data)
+    .data                                    0x100000c8   Section        8  rt_timer.o(.data)
+    .bss                                     0x100000d0   Section     7372  rtx_conf_cm.o(.bss)
+    std_libspace                             0x1000197c   Data         960  rtx_conf_cm.o(.bss)
+    std_libmutex                             0x10001d3c   Data          96  rtx_conf_cm.o(.bss)
+    .bss                                     0x10001d9c   Section       44  main_task_exp.o(.bss)
+    .bss                                     0x10001dc8   Section       52  rt_task.o(.bss)
+    .bss                                     0x10001dfc   Section       48  rt_list.o(.bss)
+    .bss                                     0x10001e2c   Section       96  libspace.o(.bss)
+    HEAP                                     0x10001e90   Section        0  startup_lpc17xx.o(HEAP)
+    STACK                                    0x10001e90   Section      512  startup_lpc17xx.o(STACK)
+    Heap_Mem                                 0x10001e90   Data           0  startup_lpc17xx.o(HEAP)
+    Stack_Mem                                0x10001e90   Data         512  startup_lpc17xx.o(STACK)
+    __initial_sp                             0x10002090   Data           0  startup_lpc17xx.o(STACK)
 
     Global Symbols
 
@@ -936,25 +936,25 @@ Image Symbol Table
     SystemFrequency                          0x10000010   Data           4  system_lpc17xx.o(.data)
     g_tid                                    0x10000014   Data           4  main_task_exp.o(.data)
     g_counter                                0x10000018   Data           4  main_task_exp.o(.data)
-    g_task_map                               0x1000001c   Data          80  main_task_exp.o(.data)
-    os_tsk                                   0x1000006c   Data           8  rt_task.o(.data)
-    os_time                                  0x10000074   Data           4  rt_time.o(.data)
-    dbg_msg                                  0x10000078   Data           1  hal_cm3.o(.data)
-    os_tick_irqn                             0x1000007c   Data           4  rt_system.o(.data)
-    os_robin                                 0x10000084   Data           8  rt_robin.o(.data)
-    os_tmr                                   0x1000008c   Data           8  rt_timer.o(.data)
-    mp_tcb                                   0x10000098   Data         492  rtx_conf_cm.o(.bss)
-    mp_stk                                   0x10000288   Data        5648  rtx_conf_cm.o(.bss)
-    os_fifo                                  0x10001898   Data         132  rtx_conf_cm.o(.bss)
-    os_active_TCB                            0x1000191c   Data          40  rtx_conf_cm.o(.bss)
-    g_mut_uart                               0x10001d64   Data          12  main_task_exp.o(.bss)
-    g_str                                    0x10001d70   Data          16  main_task_exp.o(.bss)
-    g_tsk_name                               0x10001d80   Data          16  main_task_exp.o(.bss)
-    os_idle_TCB                              0x10001d90   Data          52  rt_task.o(.bss)
-    os_rdy                                   0x10001dc4   Data          24  rt_list.o(.bss)
-    os_dly                                   0x10001ddc   Data          24  rt_list.o(.bss)
-    __libspace_start                         0x10001df4   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x10001e54   Data           0  libspace.o(.bss)
+    g_task_map                               0x1000001c   Data         140  main_task_exp.o(.data)
+    os_tsk                                   0x100000a8   Data           8  rt_task.o(.data)
+    os_time                                  0x100000b0   Data           4  rt_time.o(.data)
+    dbg_msg                                  0x100000b4   Data           1  hal_cm3.o(.data)
+    os_tick_irqn                             0x100000b8   Data           4  rt_system.o(.data)
+    os_robin                                 0x100000c0   Data           8  rt_robin.o(.data)
+    os_tmr                                   0x100000c8   Data           8  rt_timer.o(.data)
+    mp_tcb                                   0x100000d0   Data         492  rtx_conf_cm.o(.bss)
+    mp_stk                                   0x100002c0   Data        5648  rtx_conf_cm.o(.bss)
+    os_fifo                                  0x100018d0   Data         132  rtx_conf_cm.o(.bss)
+    os_active_TCB                            0x10001954   Data          40  rtx_conf_cm.o(.bss)
+    g_mut_uart                               0x10001d9c   Data          12  main_task_exp.o(.bss)
+    g_str                                    0x10001da8   Data          16  main_task_exp.o(.bss)
+    g_tsk_name                               0x10001db8   Data          16  main_task_exp.o(.bss)
+    os_idle_TCB                              0x10001dc8   Data          52  rt_task.o(.bss)
+    os_rdy                                   0x10001dfc   Data          24  rt_list.o(.bss)
+    os_dly                                   0x10001e14   Data          24  rt_list.o(.bss)
+    __libspace_start                         0x10001e2c   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x10001e8c   Data           0  libspace.o(.bss)
 
 
 
@@ -964,7 +964,7 @@ Memory Map of the image
 
   Image Entry point : 0x000000cd
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00001e0c, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00001e48, Max: 0x00080000, ABSOLUTE)
 
     Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00001d78, Max: 0x00080000, ABSOLUTE)
 
@@ -1097,31 +1097,30 @@ Memory Map of the image
     0x00001d58   0x00000020   Data   RO          961    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x10000000, Size: 0x00002058, Max: 0x00008000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Base: 0x10000000, Size: 0x00002090, Max: 0x00008000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x10000000   0x00000008   Data   RW           16    .data               rtx_conf_cm.o
     0x10000008   0x00000008   Data   RW           39    .data               retarget.o
     0x10000010   0x00000004   Data   RW           69    .data               system_lpc17xx.o
-    0x10000014   0x00000058   Data   RW          130    .data               main_task_exp.o
-    0x1000006c   0x00000008   Data   RW          175    .data               RTX_CM3.lib(rt_task.o)
-    0x10000074   0x00000004   Data   RW          271    .data               RTX_CM3.lib(rt_time.o)
-    0x10000078   0x00000001   Data   RW          357    .data               RTX_CM3.lib(hal_cm3.o)
-    0x10000079   0x00000003   PAD
-    0x1000007c   0x00000007   Data   RW          404    .data               RTX_CM3.lib(rt_system.o)
-    0x10000083   0x00000001   PAD
-    0x10000084   0x00000008   Data   RW          558    .data               RTX_CM3.lib(rt_robin.o)
-    0x1000008c   0x00000008   Data   RW          739    .data               RTX_CM3.lib(rt_timer.o)
-    0x10000094   0x00000004   PAD
-    0x10000098   0x00001ccc   Zero   RW           14    .bss                rtx_conf_cm.o
-    0x10001d64   0x0000002c   Zero   RW          129    .bss                main_task_exp.o
-    0x10001d90   0x00000034   Zero   RW          174    .bss                RTX_CM3.lib(rt_task.o)
-    0x10001dc4   0x00000030   Zero   RW          487    .bss                RTX_CM3.lib(rt_list.o)
-    0x10001df4   0x00000060   Zero   RW          766    .bss                c_w.l(libspace.o)
-    0x10001e54   0x00000004   PAD
-    0x10001e58   0x00000000   Zero   RW            2    HEAP                startup_lpc17xx.o
-    0x10001e58   0x00000200   Zero   RW            1    STACK               startup_lpc17xx.o
+    0x10000014   0x00000094   Data   RW          130    .data               main_task_exp.o
+    0x100000a8   0x00000008   Data   RW          175    .data               RTX_CM3.lib(rt_task.o)
+    0x100000b0   0x00000004   Data   RW          271    .data               RTX_CM3.lib(rt_time.o)
+    0x100000b4   0x00000001   Data   RW          357    .data               RTX_CM3.lib(hal_cm3.o)
+    0x100000b5   0x00000003   PAD
+    0x100000b8   0x00000007   Data   RW          404    .data               RTX_CM3.lib(rt_system.o)
+    0x100000bf   0x00000001   PAD
+    0x100000c0   0x00000008   Data   RW          558    .data               RTX_CM3.lib(rt_robin.o)
+    0x100000c8   0x00000008   Data   RW          739    .data               RTX_CM3.lib(rt_timer.o)
+    0x100000d0   0x00001ccc   Zero   RW           14    .bss                rtx_conf_cm.o
+    0x10001d9c   0x0000002c   Zero   RW          129    .bss                main_task_exp.o
+    0x10001dc8   0x00000034   Zero   RW          174    .bss                RTX_CM3.lib(rt_task.o)
+    0x10001dfc   0x00000030   Zero   RW          487    .bss                RTX_CM3.lib(rt_list.o)
+    0x10001e2c   0x00000060   Zero   RW          766    .bss                c_w.l(libspace.o)
+    0x10001e8c   0x00000004   PAD
+    0x10001e90   0x00000000   Zero   RW            2    HEAP                startup_lpc17xx.o
+    0x10001e90   0x00000200   Zero   RW            1    STACK               startup_lpc17xx.o
 
 
 ==============================================================================
@@ -1131,15 +1130,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1432        572          0         88         44      10981   main_task_exp.o
-        86          0          0          8          0       5834   retarget.o
-       148         26         40          8       7372      11065   rtx_conf_cm.o
-        56         22        204          0        512        932   startup_lpc17xx.o
-       540         64          0          4          0      17331   system_lpc17xx.o
-       216         12          0          0          0       1716   uart_polling.o
+      1432        572          0        148         44      11017   main_task_exp.o
+        86          0          0          8          0       5858   retarget.o
+       148         26         40          8       7372      11089   rtx_conf_cm.o
+        56         22        204          0        512        948   startup_lpc17xx.o
+       540         64          0          4          0      17347   system_lpc17xx.o
+       216         12          0          0          0       1732   uart_polling.o
 
     ----------------------------------------------------------------------
-      2480        696        276        108       7928      47859   Object Totals
+      2480        696        276        168       7928      47991   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          2          0          0          0          0          0   (incl. Padding)
 
@@ -1147,20 +1146,20 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
 
-         4          4          0          0          0        164   SVC_Table.o
-       548         66          0          1          0       2769   hal_cm3.o
-        88          6          0          0          0        573   rt_event.o
-       514         28          0          0         48       4426   rt_list.o
-       208          4          0          0          0        633   rt_mailbox.o
-       154          0          0          0          0       1793   rt_membox.o
-       366         14          0          0          0       1745   rt_mutex.o
-       112         22          0          8          0       1014   rt_robin.o
-        52          4          0          0          0        501   rt_semaphore.o
-       330         42          0          7          0       3154   rt_system.o
-      1060        166          0          8         52       7276   rt_task.o
-       172         24          0          0          0       1932   rt_task_ext.o
-       102         16          0          4          0       1455   rt_time.o
-        76         10          0          8          0        643   rt_timer.o
+         4          4          0          0          0        172   SVC_Table.o
+       548         66          0          1          0       2817   hal_cm3.o
+        88          6          0          0          0        581   rt_event.o
+       514         28          0          0         48       4498   rt_list.o
+       208          4          0          0          0        641   rt_mailbox.o
+       154          0          0          0          0       1817   rt_membox.o
+       366         14          0          0          0       1769   rt_mutex.o
+       112         22          0          8          0       1038   rt_robin.o
+        52          4          0          0          0        509   rt_semaphore.o
+       330         42          0          7          0       3218   rt_system.o
+      1060        166          0          8         52       7376   rt_task.o
+       172         24          0          0          0       1964   rt_task_ext.o
+       102         16          0          4          0       1487   rt_time.o
+        76         10          0          8          0        659   rt_timer.o
          8          0          0          0          0         68   __main.o
        106          0          0          0          0         84   __printf.o
         52          8          0          0          0          0   __scatter.o
@@ -1194,18 +1193,18 @@ Image component sizes
          2          0          0          0          0         68   use_no_semi.o
 
     ----------------------------------------------------------------------
-      4788        450          0         40        204      29378   Library Totals
-        16          0          0          4          8          0   (incl. Padding)
+      4788        450          0         40        200      29846   Library Totals
+        16          0          0          4          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-      3786        406          0         36        100      28078   RTX_CM3.lib
+      3786        406          0         36        100      28546   RTX_CM3.lib
        986         44          0          0         96       1300   c_w.l
 
     ----------------------------------------------------------------------
-      4788        450          0         40        204      29378   Library Totals
+      4788        450          0         40        200      29846   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1214,15 +1213,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7268       1146        276        148       8132      73857   Grand Totals
-      7268       1146        276        148       8132      73857   ELF Image Totals
-      7268       1146        276        148          0          0   ROM Totals
+      7268       1146        276        208       8128      74457   Grand Totals
+      7268       1146        276        208       8128      74457   ELF Image Totals
+      7268       1146        276        208          0          0   ROM Totals
 
 ==============================================================================
 
     Total RO  Size (Code + RO Data)                 7544 (   7.37kB)
-    Total RW  Size (RW Data + ZI Data)              8280 (   8.09kB)
-    Total ROM Size (Code + RO Data + RW Data)       7692 (   7.51kB)
+    Total RW  Size (RW Data + ZI Data)              8336 (   8.14kB)
+    Total ROM Size (Code + RO Data + RW Data)       7752 (   7.57kB)
 
 ==============================================================================
 

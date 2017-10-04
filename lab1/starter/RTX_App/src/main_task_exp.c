@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define NUM_FNAMES 4
+#define NUM_FNAMES 7
 
 struct func_info {
   void (*p)();      /* function pointer */
@@ -22,6 +22,9 @@ struct func_info {
 extern void os_idle_demon(void);
 __task void task1(void);
 __task void task2(void);
+__task void task3(void);
+__task void task4(void);
+__task void task5(void);
 __task void init (void);
  
 char *state2str(unsigned char state, char *str);
@@ -40,6 +43,9 @@ struct func_info g_task_map[NUM_FNAMES] = \
   {NULL,  "os_idle_demon"}, \
   {task1, "task1"},   \
   {task2, "task2"},   \
+	{task3, "task3"},   \
+  {task4, "task4"},   \
+	{task5, "task5"},   \
   {init,  "init" }
 };
 
@@ -138,12 +144,12 @@ __task void init(void)
 	printf("init: created task2 with TID %d\n", g_tid);
 	os_mut_release(g_mut_uart);
 	
-	g_tid = os_tsk_create(task3, 4);  /* task 2 at priority 4 */
+	g_tid = os_tsk_create(task3, 4);  /* task 3 at priority 4 */
 	os_mut_wait(g_mut_uart, 0xFFFF);
 	printf("init: created task3 with TID %d\n", g_tid);
 	os_mut_release(g_mut_uart);
 	
-	g_tid = os_tsk_create(task4, 2);  /* task 2 at priority 2 */
+	g_tid = os_tsk_create(task4, 2);  /* task 4 at priority 2 */
 	os_mut_wait(g_mut_uart, 0xFFFF);
 	printf("init: created task4 with TID %d\n", g_tid);
 	os_mut_release(g_mut_uart);
