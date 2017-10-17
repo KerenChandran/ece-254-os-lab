@@ -17,7 +17,7 @@
 ### ADS-LD Output File: '.\build\FLASH\RTX_APP.axf'
 ### ADS-LD Command File: '.\build\FLASH\RTX_APP.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '.\build\FLASH\RTX_APP.lnp', Handle=0x00000750
+### Creating CmdFile '.\build\FLASH\RTX_APP.lnp', Handle=0x00000DB0
 ### Writing '.lnp' file
 ### ADS-LD Command file '.\build\FLASH\RTX_APP.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

@@ -14,6 +14,8 @@
 
 #define NUM_FNAMES 4
 
+_declare_box(mpool, 20, 32);
+
 struct func_info {
   void (*p)();      /* function pointer */
   char name[16];    /* name of the function */
@@ -96,24 +98,24 @@ struct func_info g_task_map[NUM_FNAMES] = \
 
 __task void task1(void)
 {
-	_declare_box(mpool, 20, 32);
 	_init_box(mpool, sizeof(mpool), 20);
 	
 	for (;;) {
 		box = os_mem_alloc(mpool);
 		printf("Task 1; Value: %d\n", box);
-		os_dly_wait(20);
 	}
 }
 
 __task void task2(void)
 {
-	U8 *box;
-	
 	for (;;) {
-		os_mem_free(mpool, box);
-		printf("Task 1; Value: %d\n", box);
-		os_dly_wait(40);
+		OS_RESULT result = os_mem_free(mpool, box);
+		if (result == OS_R_OK) {
+			printf("Task 2 Successfully cleared!\n");
+		} else {
+			printf("Task 2 Failed!\n");
+		}
+		os_dly_wait(140);
 	}
 }
 
