@@ -1,0 +1,39 @@
+Dependencies for Project 'RTX_App', Target 'Starter SIM': (DO NOT MODIFY !)
+F (.\src\startup_LPC17xx.s)(0x59D552EB)(--cpu Cortex-M3 -g --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx --list ".\build\FLASH\lst\startup_LPC17xx.lst" --xref -o ".\build\FLASH\startup_LPC17xx.o" --depend ".\build\FLASH\startup_LPC17xx.d")
+F (.\src\RTX_Conf_CM.c)(0x59D552EB)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o ".\build\FLASH\rtx_conf_cm.o" --omf_browse ".\build\FLASH\rtx_conf_cm.crf" --depend ".\build\FLASH\rtx_conf_cm.d")
+I (src\../../RTX_CM3/INC/RTL.h)(0x59D552EC)
+I (C:\Keil\ARM\RV31\INC\RTX_lib.c)(0x5050F568)
+F (.\src\Retarget.c)(0x59D552EB)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o ".\build\FLASH\retarget.o" --omf_browse ".\build\FLASH\retarget.crf" --depend ".\build\FLASH\retarget.d")
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB1A576)
+I (C:\Keil\ARM\ARMCC\bin\..\include\rt_misc.h)(0x4EB1A570)
+I (src\uart_polling.h)(0x59D552EC)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB1A574)
+F (.\src\system_LPC17xx.c)(0x59D552EC)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o ".\build\FLASH\system_lpc17xx.o" --omf_browse ".\build\FLASH\system_lpc17xx.crf" --depend ".\build\FLASH\system_lpc17xx.d")
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB1A574)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.h)(0x4FF5D3BC)
+I (C:\Keil\ARM\CMSIS\Include\core_cm3.h)(0x5006FC72)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x505A2F7C)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDB674C)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F591872)
+F (.\src\uart_polling.c)(0x59D552EC)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o ".\build\FLASH\uart_polling.o" --omf_browse ".\build\FLASH\uart_polling.crf" --depend ".\build\FLASH\uart_polling.d")
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.h)(0x4FF5D3BC)
+I (C:\Keil\ARM\CMSIS\Include\core_cm3.h)(0x5006FC72)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB1A574)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x505A2F7C)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDB674C)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F591872)
+I (src\uart_polling.h)(0x59D552EC)
+F (.\src\main_task_exp.c)(0x59E64D81)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o ".\build\FLASH\main_task_exp.o" --omf_browse ".\build\FLASH\main_task_exp.crf" --depend ".\build\FLASH\main_task_exp.d")
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.h)(0x4FF5D3BC)
+I (C:\Keil\ARM\CMSIS\Include\core_cm3.h)(0x5006FC72)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB1A574)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x505A2F7C)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDB674C)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F591872)
+I (src\uart_polling.h)(0x59D552EC)
+I (C:\Keil\ARM\RV31\INC\RTL.h)(0x504E13EC)
+I (src\../../RTX_CM3/INC/RTL_ext.h)(0x59D552EC)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB1A576)
+I (C:\Keil\ARM\ARMCC\bin\..\include\string.h)(0x4EB1A576)
+F (..\RTX_CM3\CM3_LE\RTX_CM3.lib)(0x59E64CD7)()
+F (.\Test_spec.txt)(0x59D552EB)()
