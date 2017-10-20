@@ -1,4 +1,4 @@
-SET PATH=C:\Keil\ARM\ARMCC\bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\OpenSSH\bin;C:\Program Files\Git\cmd;C:\Users\IEUser\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin
+SET PATH=C:\Keil\ARM\ARMCC\bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\OpenSSH\bin;C:\Program Files\Git\cmd;C:\Users\IEUser\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\Microsoft VS Code\bin
 SET CPU_TYPE=Cortex-M3
 SET CPU_VENDOR=ARM
 SET UV2_TARGET=CM3_LE

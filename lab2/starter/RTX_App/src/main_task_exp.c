@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define NUM_FNAMES 4
+#define NUM_FNAMES 5
 
 _declare_box(mpool, 20, 32);
 
@@ -24,12 +24,15 @@ struct func_info {
 extern void os_idle_demon(void);
 __task void task1(void);
 __task void task2(void);
+__task void task3(void);
+__task void task4(void);
 __task void init (void);
  
 char *state2str(unsigned char state, char *str);
 char *fp2name(void (*p)(), char *str);
 
-U8 *box;
+void *box;
+int counter = 0;
 
 OS_MUT g_mut_uart;
 OS_TID g_tid = 255;
@@ -44,78 +47,54 @@ struct func_info g_task_map[NUM_FNAMES] = \
   {NULL,  "os_idle_demon"}, \
   {task1, "task1"},   \
   {task2, "task2"},   \
+  {task3, "task3"},   \
   {init,  "init" }
 };
 
 /* no local variables defined, use one global var */
-/*__task void task1(void)
-{
-	for (;;) {
-		g_counter++;
-	}
-}
-*/
 
-/*--------------------------- task2 -----------------------------------*/
-/* checking states of all tasks in the system                          */
+/*--------------------------- task1 -----------------------------------*/
+/* Continously allocates memory 						                           */
 /*---------------------------------------------------------------------*/
-/*__task void task2(void)
-{
-	U8 i=1;
-	RL_TASK_INFO task_info;
-	
-  
-	os_mut_wait(g_mut_uart, 0xFFFF);
-	printf("TID\tNAME\t\tPRIO\tSTATE   \t%%STACK\n");
-	os_mut_release(g_mut_uart);
-    
-	for(i = 0; i <3; i++) { // this is a lazy way of doing loop.
-		if (os_tsk_get(i+1, &task_info) == OS_R_OK) {
-			os_mut_wait(g_mut_uart, 0xFFFF);  
-			printf("%d\t%s\t\t%d\t%s\t%d%%\n", \
-			       task_info.task_id, \
-			       fp2name(task_info.ptask, g_tsk_name), \
-			       task_info.prio, \
-			       state2str(task_info.state, g_str),  \
-			       task_info.stack_usage);
-			os_mut_release(g_mut_uart);
-		} 
-	}
-    
-	if (os_tsk_get(0xFF, &task_info) == OS_R_OK) {
-		os_mut_wait(g_mut_uart, 0xFFFF);  
-		printf("%d\t%s\t\t%d\t%s\t%d%%\n", \
-		       task_info.task_id, \
-		       fp2name(task_info.ptask, g_tsk_name), \
-		       task_info.prio, \
-		       state2str(task_info.state, g_str),  \
-		       task_info.stack_usage);
-		os_mut_release(g_mut_uart);
-	} 
-    
-	for(;;);
-} */
-
 __task void task1(void)
 {
+	void *temp;
 	_init_box(mpool, sizeof(mpool), 20);
-	
 	for (;;) {
-		box = os_mem_alloc(mpool);
-		printf("Task 1; Value: %d\n", box);
+		printf("Reserving memory for Task 1, Number: %d\n", counter++);
+		temp = os_mem_alloc(mpool);
+		if (temp != NULL) {
+			box = temp;
+		}
+		printf("Finished allocating Memory for Task 1, Number: %d in address %d\n", counter, box);
 	}
 }
 
+/*--------------------------- task2 -----------------------------------*/
+/* Clears last memory in memory pool					                         */
+/*---------------------------------------------------------------------*/
 __task void task2(void)
 {
 	for (;;) {
 		OS_RESULT result = os_mem_free(mpool, box);
 		if (result == OS_R_OK) {
-			printf("Task 2 Successfully cleared!\n");
+			printf("Successfully cleared address %d (task 2)\n", box);
 		} else {
-			printf("Task 2 Failed!\n");
+			printf("Failed clearing address %d (task 2)\n", box);
 		}
-		os_dly_wait(140);
+	}
+}
+
+__task void task3(void)
+{
+	void *temp;
+	for (;;) {
+		printf("Task 3 reserving memory\n");
+		temp = os_mem_alloc(mpool);
+		if (temp != NULL) {
+			box = temp;
+		}
+		printf("Finished allocating memory for task 3\n");
 	}
 }
 
@@ -131,7 +110,7 @@ __task void init(void)
 	printf("init: TID = %d\n", os_tsk_self());
 	os_mut_release(g_mut_uart);
   
-	g_tid = os_tsk_create(task1, 1);  /* task 1 at priority 1 */
+	g_tid = os_tsk_create(task1, 2);  /* task 1 at priority 2 */
 	os_mut_wait(g_mut_uart, 0xFFFF);
 	printf("init: created task1 with TID %d\n", g_tid);
 	os_mut_release(g_mut_uart);
@@ -140,7 +119,12 @@ __task void init(void)
 	os_mut_wait(g_mut_uart, 0xFFFF);
 	printf("init: created task2 with TID %d\n", g_tid);
 	os_mut_release(g_mut_uart);
-  
+	
+	g_tid = os_tsk_create(task3, 3);  /* task 3 at priority 3 */
+	os_mut_wait(g_mut_uart, 0xFFFF);
+	printf("init: created task3 with TID %d\n", g_tid);
+	os_mut_release(g_mut_uart);
+	
 	os_tsk_delete_self();     /* task MUST delete itself before exiting */
 }
 
