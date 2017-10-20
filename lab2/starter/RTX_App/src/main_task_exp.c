@@ -25,7 +25,6 @@ extern void os_idle_demon(void);
 __task void task1(void);
 __task void task2(void);
 __task void task3(void);
-__task void task4(void);
 __task void init (void);
  
 char *state2str(unsigned char state, char *str);

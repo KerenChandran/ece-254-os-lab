@@ -7,3 +7,4 @@
 .\CM3_LE\rt_membox_ext.o: SRC\CM\rt_List.h
 .\CM3_LE\rt_membox_ext.o: SRC\CM\rt_Task.h
 .\CM3_LE\rt_membox_ext.o: SRC\CM\rt_MemBox_ext.h
+.\CM3_LE\rt_membox_ext.o: SRC\CM\rt_Task_ext.h

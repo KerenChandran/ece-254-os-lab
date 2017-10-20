@@ -90,7 +90,7 @@ I (SRC\CM\rt_MemBox.h)(0x59D552EC)
 I (SRC\CM\rt_Robin.h)(0x59D552EC)
 I (SRC\CM\rt_HAL_CM.h)(0x59D552EC)
 I (SRC\CM\rt_Task_ext.h)(0x59E98D9F)
-F (.\SRC\CM\rt_MemBox_ext.c)(0x59E94981)(-c --cpu Cortex-M3 --li -g -O0 --apcs=interwork --split_sections -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -DDBG_MSG -o ".\CM3_LE\rt_membox_ext.o" --omf_browse ".\CM3_LE\rt_membox_ext.crf" --depend ".\CM3_LE\rt_membox_ext.d")
+F (.\SRC\CM\rt_MemBox_ext.c)(0x59E98F49)(-c --cpu Cortex-M3 --li -g -O0 --apcs=interwork --split_sections -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -DDBG_MSG -o ".\CM3_LE\rt_membox_ext.o" --omf_browse ".\CM3_LE\rt_membox_ext.crf" --depend ".\CM3_LE\rt_membox_ext.d")
 I (SRC\CM\rt_TypeDef.h)(0x59D552EC)
 I (SRC\CM\RTX_Config.h)(0x59D552EC)
 I (SRC\CM\rt_System.h)(0x59D552EC)
@@ -99,6 +99,7 @@ I (SRC\CM\rt_HAL_CM.h)(0x59D552EC)
 I (SRC\CM\rt_List.h)(0x59D552EC)
 I (SRC\CM\rt_Task.h)(0x59D552EC)
 I (SRC\CM\rt_MemBox_ext.h)(0x59D552EC)
+I (SRC\CM\rt_Task_ext.h)(0x59E98D9F)
 F (.\SRC\CM\SVC_Table.s)(0x59D552EC)(--cpu Cortex-M3 --li -g --16 --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o ".\CM3_LE\SVC_Table.o" --depend ".\CM3_LE\SVC_Table.d")
 F (.\SRC\CM\HAL_CM3.c)(0x59D552EC)(-c --cpu Cortex-M3 --li -g -O0 --apcs=interwork --split_sections -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -DDBG_MSG -o ".\CM3_LE\hal_cm3.o" --omf_browse ".\CM3_LE\hal_cm3.crf" --depend ".\CM3_LE\hal_cm3.d")
 I (SRC\CM\rt_TypeDef.h)(0x59D552EC)

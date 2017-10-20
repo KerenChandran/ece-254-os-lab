@@ -22,6 +22,7 @@
 #include "rt_List.h"
 #include "rt_Task.h"       /* added in ECE254 lab keil_proc */ 
 #include "rt_MemBox_ext.h" /* added in ECE254 lab keil_proc */   
+#include "rt_Task_ext.h"
 
 /* ECE254 Lab Comment: You may need to include more header files */
 

@@ -1,1 +1,8 @@
-Write test task specification in this file.
+Task 1
+- Attempts to continuously allocate memory from the memory pool and will save the address of the last successfully allocated block
+
+Task 2
+- Attempts to free the last allocated memory and prints whether it successfully freed the memory.
+
+Task 3
+- Attempts to continously allocate memory and prints if it successfully allocated memory.
