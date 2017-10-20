@@ -10,7 +10,7 @@
  *---------------------------------------------------------------------------*/
 /* Definitions */
 
-#define WAIT_MUT        9
+#define WAIT_MEM        10
 
 /* Structures */
 /* added in ECE254 lab keil_proc, better to put in a separate file. */
