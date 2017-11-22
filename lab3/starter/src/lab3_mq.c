@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <math.h>
 #include <string.h>
 #include <time.h>
@@ -10,29 +11,43 @@
 #include <mqueue.h>
 
 int N,B,P,C;
+int EMPTY_QUEUE = -1;
 struct timeval time_val;
-struct mq_attr attr;
 mqd_t may_produce;
 mqd_t may_consume;
 
-char *qname = "/list";
+char *may_produce_qname = "/produce";
+char *may_consume_qname = "/consume";
 mode_t mode = S_IRUSR | S_IWUSR;
 
 void init(int B) {
-    attr.mq_maxmsg  = B;
-    attr.mq_msgsize = sizeof(int);
-    attr.mq_flags   = 0;		/* a blocking queue  */
+    struct mq_attr may_produce_attr;
+    struct mq_attr may_consume_attr;
+    int initial_count = 0;
 
-    may_produce = mq_open(qname, O_RDWR | O_CREAT, mode, &attr);
+    may_produce_attr.mq_maxmsg  = B;
+    may_produce_attr.mq_msgsize = sizeof(int);
+    may_produce_attr.mq_flags   = 0;		/* a blocking queue  */
+
+    may_consume_attr.mq_maxmsg  = 1;
+    may_consume_attr.mq_msgsize = sizeof(int);
+    may_consume_attr.mq_flags   = 0;		/* a blocking queue  */
+
+
+    may_produce = mq_open(may_produce_qname, O_RDWR | O_CREAT, mode, &may_produce_attr);
     if (may_produce == -1 ) {
         perror("mq_open() failed");
         exit(1);
     }
 
-    may_consume = mq_open(qname, O_RDONLY, mode, &attr);
+    may_consume = mq_open(may_consume_qname, O_RDWR | O_CREAT, mode, &may_consume_attr);
     if (may_consume == -1 ) {
         perror("mq_open() failed");
         exit(1);
+    }
+
+    if (mq_send(may_consume, (char *) &initial_count, sizeof(int), 0) == -1) {
+        perror("mq_send() failed");
     }
 }
 
@@ -51,15 +66,13 @@ void producer(int p) {
 void consumer(int id) {
     int num;
     double root;
-    int items_consumed = id;
-    struct timespec ts = {time(0) + 5, 0};
+    bool consumer_continue = true;
+    int count;
 
-    while(items_consumed <= N) {
-        if (mq_timedreceive(may_consume, (char *) &num, \
-            sizeof(int), 0, &ts) == -1) {
-            perror("mq_timedreceive() failed");
-            printf("Type Ctrl-C and wait for 5 seconds to terminate.\n");
-        } else {
+    while(consumer_continue) {
+        mq_receive(may_produce, (char *) &num, sizeof(int), 0);
+        mq_receive(may_consume, (char *) &count, sizeof(int), 0);
+        if (count <= N) {
             // Calculate square root
             root = sqrt((float)num);
             // Only print perfect roots 
@@ -67,7 +80,16 @@ void consumer(int id) {
                 printf("%d %d %f \n", id, num, root);
             }
         }
-        items_consumed = items_consumed + C;
+        if (count >= N) {
+            consumer_continue = false;
+            if (mq_send(may_produce, (char *) &EMPTY_QUEUE, sizeof(int), 0) == -1) {
+                perror("mq_send() failed");
+            }
+        }
+        count++;
+        if (mq_send(may_consume, (char *) &count, sizeof(int), 0) == -1) {
+            perror("mq_send() failed");
+        }
     }
 }
 
@@ -119,17 +141,12 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    if (mq_close(may_produce) == -1) {
+    if (mq_close(may_consume) == -1 || mq_close(may_produce) == -1) {
         perror("mq_close() failed");
         exit(2);
     }
 
-    if (mq_close(may_consume) == -1) {
-        perror("mq_close() failed");
-        exit(2);
-    }
-
-    if (mq_unlink(qname) != 0) {
+    if (mq_unlink(may_produce_qname) != 0 || mq_unlink(may_consume_qname) != 0) {
         perror("mq_unlink() failed");
         exit(3);
     }
