@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <signal.h>
 #include <math.h>
-#include <stdbool.h>
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
@@ -14,29 +10,26 @@
 #include <mqueue.h>
 
 int N,B,P,C;
-
-int* boundedBuffer;
-
 struct timeval time_val;
-
+struct mq_attr attr;
 mqd_t may_produce;
 mqd_t may_consume;
-struct mq_attr attr;
-mode_t mode = S_IRUSR | S_IWUSR;
+
 char *qname = "/list";
+mode_t mode = S_IRUSR | S_IWUSR;
 
 void init(int B) {
     attr.mq_maxmsg  = B;
     attr.mq_msgsize = sizeof(int);
     attr.mq_flags   = 0;		/* a blocking queue  */
 
-    may_produce  = mq_open(qname, O_RDWR | O_CREAT, mode, &attr);
+    may_produce = mq_open(qname, O_RDWR | O_CREAT, mode, &attr);
     if (may_produce == -1 ) {
         perror("mq_open() failed");
         exit(1);
     }
 
-    may_consume  = mq_open(qname, O_RDONLY, mode, &attr);
+    may_consume = mq_open(qname, O_RDONLY, mode, &attr);
     if (may_consume == -1 ) {
         perror("mq_open() failed");
         exit(1);
@@ -71,7 +64,7 @@ void consumer(int id) {
             root = sqrt((float)num);
             // Only print perfect roots 
             if(root == (int)root) {
-                printf("Consumer id: %d, num: %d, root: %f \n", id, num, root);
+                printf("%d %d %f \n", id, num, root);
             }
         }
         items_consumed = items_consumed + C;

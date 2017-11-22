@@ -9,9 +9,9 @@ LDFLAGS=-g -lrt -lm
 
 OBJS1=lab3_mq.o
 
-all: lab3_mq.out
+all: produce
 
-lab3_mq.out: $(OBJS1) 
+produce: $(OBJS1) 
 	$(LD) -o $@ $(OBJS1) $(LDFLAGS) 
 
 %.o: %.c
