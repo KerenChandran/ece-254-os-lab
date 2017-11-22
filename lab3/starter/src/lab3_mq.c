@@ -13,7 +13,7 @@
 #include <errno.h>
 #include <mqueue.h>
 
-int N,B,P,C, p_count, c_count;
+int N,B,P,C;
 
 int* boundedBuffer;
 
@@ -41,9 +41,6 @@ void init(int B) {
         perror("mq_open() failed");
         exit(1);
     }
-
-    p_count = 0;
-    c_count = 0;
 }
 
 void producer(int p) {
