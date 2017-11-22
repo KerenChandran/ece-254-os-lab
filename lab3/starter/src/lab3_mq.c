@@ -23,9 +23,9 @@ mqd_t may_produce;
 mqd_t may_consume;
 struct mq_attr attr;
 mode_t mode = S_IRUSR | S_IWUSR;
+char *qname = "/list";
 
 void init(int B) {
-    char *qname = "/list";
     attr.mq_maxmsg  = B;
     attr.mq_msgsize = sizeof(int);
     attr.mq_flags   = 0;		/* a blocking queue  */
@@ -49,12 +49,7 @@ void init(int B) {
 void producer(int p) {
     int next_number = p;
     
-    while(1) {
-        if (next_number > N) {
-            break;
-        }
-        p_count++;
-
+    while(next_number <= N) {
         if (mq_send(may_produce, (char *) &next_number, sizeof(int), 0) == -1) {
             perror("mq_send() failed");
         }
@@ -66,19 +61,14 @@ void producer(int p) {
 void consumer(int id) {
     int num;
     double root;
+    int items_consumed = id;
+    struct timespec ts = {time(0) + 5, 0};
 
-    while(1) {
-        if (c_count > N - 1) {
-            break;
-        }
-        c_count++;
-
-        // Remove from buffer
-        if (mq_receive(may_consume, (char *) &num, \
-		    sizeof(int), 0) == -1) {
+    while(items_consumed <= N) {
+        if (mq_timedreceive(may_consume, (char *) &num, \
+            sizeof(int), 0, &ts) == -1) {
             perror("mq_timedreceive() failed");
-	    printf("Type Ctrl-C and wait for 5 seconds to terminate.\n");
-
+            printf("Type Ctrl-C and wait for 5 seconds to terminate.\n");
         } else {
             // Calculate square root
             root = sqrt((float)num);
@@ -87,6 +77,7 @@ void consumer(int id) {
                 printf("Consumer id: %d, num: %d, root: %f \n", id, num, root);
             }
         }
+        items_consumed = items_consumed + C;
     }
 }
 
@@ -131,21 +122,28 @@ int main(int argc, char* argv[]) {
     }
 
     // Collect results
-    // - collect producer results
-    for (int p = 0; p < P; p++) { 
+    for (int p = 0; p < P + C; p++) { 
         wait(&status);
         if (!WIFEXITED(status)) {
             return -1;
         }
     }
 
-    // - collect consumer results
-    for (int c = 0; c < C; c++) {
-        wait(&status);
-        if (!WIFEXITED(status)) {
-            return -1;
-        }
+    if (mq_close(may_produce) == -1) {
+        perror("mq_close() failed");
+        exit(2);
     }
+
+    if (mq_close(may_consume) == -1) {
+        perror("mq_close() failed");
+        exit(2);
+    }
+
+    if (mq_unlink(qname) != 0) {
+        perror("mq_unlink() failed");
+        exit(3);
+    }
+
 
     gettimeofday(&time_val, NULL);    
     double end_time = ((double) time_val.tv_sec) + time_val.tv_usec/1000000.0;

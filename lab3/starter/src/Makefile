@@ -2,7 +2,7 @@
 # Makefile: build mqueue sender and receiver example code
 
 CC=gcc
-CFLAGS=-Wall -g
+CFLAGS=-Wall -g -lrt
 LD=gcc
 LDFLAGS=-g -lrt -lm
 
